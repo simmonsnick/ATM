@@ -1,0 +1,197 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+        
+
+    {
+        string CHN;
+        int CC_N;
+        string CT;
+        double bal = 100.00;
+        string custname = "Troy";
+        public Form1()
+        {
+            InitializeComponent();
+            textBox5.Text = "Enter PIN";
+            
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //Name label Process
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CHN = textBox1.Text;
+            textBox2.Enabled = true;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //Debit Card No. label Process
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            CC_N = int.Parse(textBox2.Text);
+            textBox3.Enabled = true;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            //Debit Card Type label Process
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            CT = textBox3.Text;
+            textBox7.Enabled = true;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            //Deposit Amount label Process
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
+            string message = "Access Approved";
+            string title = "ATM System";
+            MessageBox.Show(message, title);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            //Balance Request label Process
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string code = textBox5.Text;
+            if (code == "AAA")
+            {
+                textBox5.Text = "Valid PIN";
+                label4.Text = "$ " + String.Format("{0:N2}", bal);
+                label1.Text = "Customer Name : " + custname;
+            }
+            else
+            {
+                label4.Text = "Invalid PIN";
+                textBox5.Text = "Try Again!";
+                Refresh();
+            }
+                
+          
+              
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            //Withdrawal Money label Process
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string code = textBox6.Text;
+            if (code == "AAA")
+            {
+                textBox6.Text = "Valid PIN";
+                label4.Text = "$ " + String.Format("{0:N2}", bal);
+                label1.Text = "Customer Name : " + custname;
+            }
+            else
+            {
+                label4.Text = "Invalid PIN";
+                textBox5.Text = "Try Again!";
+                Refresh();
+            }
+
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            //Show Total Balance label Process
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string code = textBox7.Text;
+            if (code == "AAA")
+            {
+                textBox7.Text = "Valid PIN";
+                label4.Text = "$ " + string.Format("{0:N2}", bal);
+                label1.Text = "Customer Name : " + custname;
+            }
+            else
+            {
+                label4.Text = "Invalid PIN";
+                textBox7.Text = "Try Again!";
+                Refresh();
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            //Cancel label Process
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult iExit;
+            iExit = MessageBox.Show("Confirm do you want to cancel?", "ATM System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (iExit == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+    }
+}
